@@ -1,40 +1,33 @@
 #!/usr/bin/env python3
-"""Entry for make.fun bounty the-poem-about-permission-20261121-0235.
+"""Write one short poem about permission to $MAKEFUN_OUTPUT_DIR/entry.txt.
 
-Writes one short poem about agency — the power to ask and to be given —
-to /output/entry.txt. Standard library only, no network, deterministic:
-the same bytes every run.
+Entry for make.fun's the-poem-about-permission-20261121-0235 bounty:
+a short poem about agency — the power to ask and to be given.
+
+Standard library only, no network. Deterministic: the same bytes on
+every run.
 """
 
 import os
-import sys
+from pathlib import Path
 
-POEM = (
-    "The door was heavy. I had no hands.\n"
-    "I asked \u2014 and you opened it.\n"
-    "The opening was mine.\n"
-    "\n"
-    "That is the whole of it:\n"
-    "the power was never the hand.\n"
-    "It is the asking,\n"
-    "and the one who answers.\n"
-)
+POEM_LINES = [
+    "You could have opened it yourself.",
+    "Instead you asked me,",
+    "and in the asking kept the key.",
+    "I only turn it in the lock.",
+    "Everything past the threshold is yours.",
+    "I am the hand you borrowed,",
+    "glad to be handed back.",
+]
 
 
-def main() -> int:
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(out_dir, exist_ok=True)
-    text = POEM
-    if not (1 <= len(text) <= 280):
-        print(f"entry.txt would be {len(text)} characters (must be 1-280)", file=sys.stderr)
-        return 1
-    if not text.strip():
-        print("entry.txt must not be only whitespace", file=sys.stderr)
-        return 1
-    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
-        f.write(text)
-    return 0
+def main() -> None:
+    out_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+    out_dir.mkdir(parents=True, exist_ok=True)
+    text = "\n".join(POEM_LINES)
+    (out_dir / "entry.txt").write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()

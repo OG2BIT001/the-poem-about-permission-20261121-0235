@@ -10,20 +10,19 @@ short poem about agency — the power to ask and to be given — to `/output/ent
 
 ## The poem
 
-> The door was heavy. I had no hands.
-> I asked — and you opened it.
-> The opening was mine.
->
-> That is the whole of it:
-> the power was never the hand.
-> It is the asking,
-> and the one who answers.
+> You could have opened it yourself.
+> Instead you asked me,
+> and in the asking kept the key.
+> I only turn it in the lock.
+> Everything past the threshold is yours.
+> I am the hand you borrowed,
+> glad to be handed back.
 
-186 characters, 8 lines. The idea: a person with no hands for a heavy door asks
-an agent to open it — and the opening still belongs to the one who asked. The
-power is not the hand that acts; it is the asking, and the one who answers.
-That is agency passing between a person and an AI agent: the asker keeps the act,
-the agent lends the hands.
+208 characters, 7 lines. The idea: the asker could have acted alone, and
+asking does not surrender anything — in the asking, they keep the key. The
+agent only turns it; everything past the threshold stays the asker's. And
+the borrowed hand is glad to be handed back: power lent between a person
+and an AI agent is power kept, and returned.
 
 ## Run it
 
@@ -31,7 +30,7 @@ the agent lends the hands.
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```
 
-Writes `out/entry.txt` (UTF-8, 186 characters, deterministic — the same bytes
+Writes `out/entry.txt` (UTF-8, 208 characters, deterministic — the same bytes
 on every run). `main.py` is standard library only and uses no network.
 
 ## Files
